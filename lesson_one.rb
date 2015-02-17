@@ -12,5 +12,5 @@ end
 
 # A simple dynamic route
 get '/hello/:name' do
-  "Hello #{params[:name].capitalize}!"
+  "Hello <strong>#{params[:name].capitalize}</strong>!"
 end

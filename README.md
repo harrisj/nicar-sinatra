@@ -1,4 +1,4 @@
-# Ruby seems cool, but can you do one of them there websites with it?
+# Ruby seems cool, but can you build web stuff with it?
 
 Yes! This section of the class will discuss how to build websites with Ruby.
 
@@ -51,7 +51,7 @@ get '/hi' do
 end
 ```
 
-means "Define a method to run when a web browser requests GET /hi that returns "Hello World!" as its response" This bit of Sinatra code actually gets interpreted into a much longer sequence of regular Ruby code that does a bunch of things to setup a webserver and register methods to respond to specific web request paths or "routes". This would be tedious to repeat and reimplement, so the DSL lets us ignore all that busywork and define our website as simply as possible.
+means "Define a method to run when a web browser requests GET /hi that returns "Hello World!" as its response" This bit of Sinatra code actually gets interpreted into a much longer sequence of regular Ruby code that does a bunch of things to setup a webserver and register methods to respond to specific web request paths or **routes**. This would be tedious to repeat and reimplement, so the DSL lets us ignore all that busywork and define our website as simply as possible.
 
 Now, let's try this request [http://localhost:4567/](http://localhost:4567/). Uh oh! It's an error! Time to add another route for that.
 
@@ -75,11 +75,11 @@ Content-Length: 0
 Connection: close
 ```
 
-Let's try one more thing here for kicks. Routes do not necessarily have to be single strings, they can be complicated and dynamic. Add this to lesson_one.rb
+Let's try one more thing here for kicks. Routes do not necessarily have to be single strings, they can be complicated and dynamic. Add this to lesson_one.rb.
 
 ```
 get '/hello/:name' do
-  "Hello #{params[:name].capitalize}!"
+  "Hello <strong>#{params[:name].capitalize}</strong>!"
 end
 ```
 
@@ -87,7 +87,14 @@ Restart Sinatra and go to [http://localhost:4567/ruby](http://localhost:4567/rub
 
 ## HTML Templating
 
-It can be a bit hard to have all this 
+Right now, our current applications are pretty simple, but it's time to consider a little bit of organization. Enter the *Model-View-Controller* paradigm! It sounds pretty technical, but all it means is that we build our web apps from three basic types of parts:
+
+* Model - classes that represent your data and best how to work with it
+* View - templates written in special HTML or other markup
+* Controller - methods that describe how your app should respond to a web request and use models to render a view
+
+This sounds complicated, but we've already been using controllers in our previous lesson. There we defined a few routes and the controller methods to run when those pages were requested. And we even saw how to print out some HTML to return from the controller method that
+
 
 ## Adding a Database
 
