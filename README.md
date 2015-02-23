@@ -93,8 +93,34 @@ Right now, our current applications are pretty simple, but it's time to consider
 * View - templates written in special HTML or other markup
 * Controller - methods that describe how your app should respond to a web request and use models to render a view
 
-This sounds complicated, but we've already been using controllers in our previous lesson. There we defined a few routes and the controller methods to run when those pages were requested. And we even saw how to print out some HTML to return from the controller method that
+This sounds complicated, but we've already been using controllers in our previous lesson. There we defined a few routes and the corresponding controller methods to run when those pages were requested. And we even saw how they might print out some HTML in the browser. Which worked, but it's a bit awkward. Instead, let's move our HTML markup out from inside the controller and put it into a separate file. Look at [views/hello.erb](views/hello.erb) for a simple example of an template file _view_. Let's look at the template
 
+```
+<h1>Hello <%= @name %></h1>
+```
+
+This kind of looks like HTML, but there is a special tag `<%= @name %>` in there that isn't HTML at all. What is that? Look at our [lesson_two.rb](lesson_two.rb) for this templateized version of our hello `route` from lesson one:
+
+```
+get '/hello/:name' do
+  @name = params[:name].capitalize
+  erb :hello
+end
+```
+
+Notice two interesting things about our revised method:
+
+* There is the `@name` variable we saw in our template being given a value
+* The next line tells Sinatra to render an **e**mbedded **r**u**b**y template in the views directory called hello.erb
+
+Embedded Ruby? This is a templating language where we can take ordinary HTML and embed ruby declarations within it using `<%= %>` for things we want included in the output and `<% %>` for commands like `<% if visible? %>` we don't. Why do this? It's a lot easier to use an external template file than to build up a string within our methods. It's also easier to have our designer create the HTML format we want and then wire up the templates with embedded directives like this. ERB is simple because it looks like HTML, but it's not the only choice. Here is the same page in another templating language called HAML with a really different syntax. (FIXME)
+
+So, let's see how well you understand what we did here. Suppose we want to add this to our pages from hello: `<p>There are 5 letters in your name</p>`. Implement this with the following steps:
+
+1. Define a new variable @count and assign it the value `@name.length` which is the length of the @name string
+2. Include a HTML snippet in the `hello.erb` template to print out the letters in the name.
+
+What is with that `@` in the variable name? What happens if we remove it? Suddenly our template just prints out "Hello, " Why? The simple explanation is that variables are usually only reachable or _scoped_ within their methods. In Ruby though, _instance variables_ on objects are defined by prefixing them with `@`. So, we are defining a variable that's also reachable from within the context of our rendered templates. If it didn't have that @, our template would look for a locally defined variable called `name` within the template and crash. But why does it print "Hello, " if our controller doesn't set @name? In that case, Ruby assumes you are defining a variable `@name` in your view, sets it to `nil` by default which is rendered in the view as an empty string. Remember that, since it's a common issue if you mistype a variable name in your template
 
 ## Adding a Database
 
