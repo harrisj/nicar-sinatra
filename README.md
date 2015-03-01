@@ -130,7 +130,7 @@ sqlite> select count(*) from accidents;
 Welcome to the world of **BIG DATA**. Let's look at a single record to see what it's like:
 
 Field|Value
--|-
+-----|-----
 ID|1
 Final|t
 Date|2012-05-20
@@ -139,7 +139,7 @@ County|Fond Du Lac
 Injury|Arrow struck victim half way between waistline and shoulder blades
 Fatal|f
 SI/SP|N/A
-Circumstances|Shooter shot an arrow from inside a sliding patio doorway on the second story of an apartment complex trying to shoot a squirrel.
+Circumstances|Shooter shot an arrow from inside a sliding patio...
 Shooter Age|16
 Shooter Gender|M
 Victim Age|7
