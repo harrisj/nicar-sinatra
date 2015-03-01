@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS accidents (
   "date" varchar(255),
   "year" INTEGER,
   "county" varchar(255),
+  "injury" TEXT,
   "fatal" boolean DEFAULT 'f' NOT NULL,
   "si_sp" varchar(2),
   "circumstances" TEXT,
@@ -12,4 +13,4 @@ CREATE TABLE IF NOT EXISTS accidents (
   "victim_age" INTEGER,
   "victim_gender" varchar(1),
   "weapon" varchar(255)
-)
+);

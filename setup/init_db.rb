@@ -13,6 +13,7 @@ CSV.foreach(File.join(File.dirname(__FILE__), "squirrel.csv"), :headers => true)
   Accident.create final_report: row["final_report"].downcase == 'yes',
                   date: date.strftime("%Y-%m-%d"),
                   year: date.year,
+                  injury: row["injury"],
                   county: row["county"],
                   fatal: row["fatal"].downcase == 'yes',
                   si_sp: row["si_sp"],
