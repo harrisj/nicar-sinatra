@@ -129,8 +129,9 @@ sqlite> select count(*) from accidents;
 
 Welcome to the world of **BIG DATA**. Let's look at a single record to see what it's like:
 
-|Id|Final|Date|Year|County|Injury|Fatal|SI/SP|Circumstances|Shooter Age|Shoot Gender|Victim Age|Victim Gender|Weapon
-1|t|2012-05-20|2012|Fond Du Lac|Arrow struck victim half way between waistline and shoulder blades|f|N/A|Shooter shot an arrow from inside a sliding patio doorway on the second story of an apartment complex trying to shoot a squirrel.|16|M|7|F|Bow Premier Archery Outlaw
+|Id|Final|Date|Year|County|Injury|Fatal|SI/SP|Circumstances|Shooter Age|Shoot Gender|Victim Age|Victim Gender|Weapon|
+|-|-|-|
+1|t|2012-05-20|2012|Fond Du Lac|Arrow struck victim half way between waistline and shoulder blades|f|N/A|Shooter shot an arrow from inside a sliding patio doorway on the second story of an apartment complex trying to shoot a squirrel.|16|M|7|F|Bow Premier Archery Outlaw|
 
 Shooting a 7-year-old girl with an arrow? Yikes.
 
