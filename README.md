@@ -157,7 +157,7 @@ Loading development environment (Rack 1.3)
 >> 
 ```
 
-What's this? It's waiting for our input. So, let's try something. I have defined an ActiveRecord model named `Accident` that allows us to query the `accidents` table in the database. So we can do things like this:
+What's this? It's waiting for our input. Tux is an add-on for Sinatra that provides what the cool kids know as a [Read-Eval-Print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) or **REPL**. Put another way, it lets us improvise our code interactively to figure out how we want to write it. So, let's try something. I have defined an ActiveRecord model named `Accident` that allows us to query the `accidents` table in the database. So we can do things like this:
 
 ```
 Loading development environment (Rack 1.3)
