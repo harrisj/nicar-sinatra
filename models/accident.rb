@@ -3,6 +3,8 @@ class Accident < ActiveRecord::Base
   scope :fatal, -> { where(fatal: true) }
   scope :self_inflicted, -> { where(si_sp: 'SI') }
   scope :same_party, -> { where(si_sp: 'SP') }
+  scope :chronological, -> { order("date ASC") }
+  scope :reverse_chron, -> { order("date DESC") }
 
   # attributes
   def self_inflicted?
