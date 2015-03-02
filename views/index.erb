@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>I fought the Squirrel and the Squirrel Won</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"></link>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"></link>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,7 +16,6 @@
             <th>Shooter</th>
             <th>Victim</th>
             <th>Injury</th>
-            <th>Weapon</th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +25,6 @@
             <td class="text-nowrap"><%= accident.shooter_age %> yr. <%= accident.shooter_gender %></td>
             <td class="text-nowrap"><% if accident.self_inflicted? %>SELF<% else %><%= accident.victim_age %> yr. <%= accident.victim_gender %><% end %></td>
             <td><% if accident.fatal? %><strong>FATAL</strong>&nbsp;<% end %><%= accident.injury %></td>
-            <td class="text-nowrap"><%= accident.weapon %></td>
           </tr>
           <% end %>
         </tbody>

@@ -186,6 +186,42 @@ end
 * *Metaprogramming* - notice that my `Accident` class doesn't define an `injury` method, but when I call that, it works and returns the corresponding field from the database. The ActiveRecord library defines method_missing actions that look if a method is a DB column and returns that if it's not explicitly defined.
 * *Magic* - taken together, reflection and metaprogramming can seem pretty uncanny. Indeed, one of the common complaints against Ruby is that there is too much magic. Sometimes, magic can be a drawback. But in this case, it makes it super simple to work with databases like you are working with native Ruby objects and that's pretty cool.
 
-So, let's define a web application. 
+So, let's build a web application. 
 
-**Nerd Note:** Let's talk about named scopes.
+Look at [lesson_three.rb](lesson_three.rb). I've defined two routes for our application:
+
+* The `/` index page will display a list of all accidents on one page
+* The `/show/:id` gives a detailed view of a specific accident
+
+Let's look also at [views/index.erb](views/index.erb) which will render the index page. I've taken the liberty of writing this HTML out for you. But I wanted you to notice a few interesting things:
+
+* I am including the [Bootstrap stylesheet](http://getbootstrap.com/) to make my table look pretty. By convention, static files like stylesheets and javascript are put within the `/public` directory.
+* Notice how I am rendering out the rows of the table by interating through the accidents with `<% @accidents.each do |accident| %>`. This creates a variable named `accident` I can reference to display the values for each accident in the `@accidents` array.
+* You can also use other Ruby control flow methods to control the page output. For instance, `<% if accident.self_inflicted? %>SELF<% else %><%= accident.victim_age %> yr. <%= accident.victim_gender %>`. Often we move this sort of logic into separate *helper* methods to keep the views simple.
+* I defined a method in the `Accident` model named `self_inflicted?` that returns true if `si_sp == 'SI'`. I could put that condition in my view, but it's better to define an abstraction in my model for special conditions like this.
+* My code for linking to a separate `show` page for each accident is pretty ugly. Other frameworks like Rails offer better helpers for dynamic URL construction.
+
+*Your Turn:* Okay, let's see how well you understand all this with the two simple tasks:
+
+1. Add a `weapon` column to the index page. This means adding both a header and another column in the table.
+2. Fix the `show` method so that it properly defines a single accident record.
+
+Remember, you probably need to ctrl-C and restart when you edit a file. But, once you've figured this out, you've made your first Ruby web application.
+
+**Nerd Note:** Let me close with one other cool thing about ActiveRecord: named scopes. I've already briefly touched on how ActiveRecord lets you define complicated SQL queries by chaining several useful methods like this
+
+```
+Accident.where(si_sp: 'SI').where("year < 2010").order('date DESC')
+```
+
+But this still requires code that calls our models to know the underlying schema of our database or that special codes like 'SI' mean _self-inflicted_. It's more useful if we can hide the underlying structure of our database and instead define other DB-query methods that can be called by controllers without them having to know how the model is structured. Enter named scopes, a DSL for defining these methods. The `->` is shorthand for `lambda`, Ruby's mechanism for defining anonymous functions.
+
+```
+scope :fatal, -> { where(fatal: true) }
+scope :self_inflicted, -> { where(si_sp: 'SI') }
+scope :same_party, -> { where(si_sp: 'SP') }
+scope :chronological, -> { order("date ASC") }
+scope :reverse_chron, -> { order("date DESC") }
+
+Accident.self_inflicted.reverse_chron
+```

@@ -8,3 +8,8 @@ get '/' do
   @accidents = Accident.order("date ASC")
   erb :index
 end
+
+get '/show/:id' do
+  # find a specific accident with Accident.find(params[:id])
+  erb :show
+end

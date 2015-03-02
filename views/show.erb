@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accident <%= @accident.date %></title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"></link>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Accident Report</h1>
+
+      <table class="table">
+        <thead></thead>
+        <tbody>
+          <tr><th>Date</th><td><%= @accident.date %></td></tr>
+          <tr><th>County</th><td><%= @accident.county %></td></tr>
+          <tr><th>Shooter</th><td class="text-nowrap"><%= @accident.shooter_age %> yr. <%= @accident.shooter_gender %></td></tr>
+          <tr><th>Victim</th><td class="text-nowrap"><% if @accident.self_inflicted? %>SELF<% else %><%= @accident.victim_age %> yr. <%= @accident.victim_gender %><% end %></td></tr>
+          <tr><th>Injury</th><td><%= @accident.injury %></td></tr>
+          <tr><th>Details</th><td><%= @accident.circumstances %></td></tr>
+        </tbody>
+      </table>
+
+      <h4><a href="<%= url('/') %>">Go Back</a></h4>
+    </div>
+  </body>
+</html>
