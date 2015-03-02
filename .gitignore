@@ -20,6 +20,8 @@ build/
 /doc/
 /rdoc/
 
+.DS_Store
+
 ## Environment normalisation:
 /.bundle/
 /lib/bundler/man/
