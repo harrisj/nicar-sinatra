@@ -107,7 +107,7 @@ Embedded Ruby? This is a templating language where we can take ordinary HTML and
 
 **Nerd Note:** Some of you might be wondering how Sinatra knew to look in the `views` directory for the `hello.erb` file. In some languages like Java, we would probably have to define a configuration file in XML or something that told Sinatra that our view named `hello` is located at the `views/hello.erb`. These configuration files are usually annoying though, since they are an extra file to edit and often out-of-date on a fast-developed project. So, often a lot of Ruby projects like Sinatra or Rails take the approach of *convention over configuration*, where the framework defines certain conventions it expects your project to follow in naming and locating files. So, by default, Sinatra expects views to be located in a `views` directory and to have a name that is the view name and template type like `hello.erb`. You can override the conventions if you really need to, but generally it's a good idea to learn them, if only because it makes it easier for the next developer working on your project to understand where files are located.
 
-So, let's see how well you understand what we did here. Suppose we want to add this to our pages from hello: `<p>There are 5 letters in your name</p>`. Implement this with the following steps:
+**Your Turn:** So, let's see how well you understand what we did here. Suppose we want to add this to our pages from hello: `<p>There are 5 letters in your name</p>`. Implement this with the following steps:
 
 1. Define a new variable @count and assign it the value `@name.length` which is the length of the @name string
 2. Include a HTML snippet in the `hello.erb` template to print out the letters in the name.
@@ -201,7 +201,7 @@ Let's look also at [views/index.erb](views/index.erb) which will render the inde
 * I defined a method in the `Accident` model named `self_inflicted?` that returns true if `si_sp == 'SI'`. I could put that condition in my view, but it's better to define an abstraction in my model for special conditions like this.
 * My code for linking to a separate `show` page for each accident is pretty ugly. Other frameworks like Rails offer better helpers for dynamic URL construction.
 
-*Your Turn:* Okay, let's see how well you understand all this with the two simple tasks:
+**Your Turn:** Okay, let's see how well you understand all this with the two simple tasks:
 
 1. Add a `weapon` column to the index page. This means adding both a header and another column in the table.
 2. Fix the `show` method so that it properly defines a single accident record.
