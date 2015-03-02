@@ -225,3 +225,5 @@ scope :reverse_chron, -> { order("date DESC") }
 
 Accident.self_inflicted.reverse_chron
 ```
+
+You must admit, it's pretty cool. Great job and welcome to the world of Ruby programming!
