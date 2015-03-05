@@ -53,11 +53,10 @@ end
 
 ...but as users of Sinatra, we don't have to worry about all that busywork and just can use the minimal amount of code to do the work we need to do
 
-Look at [lesson_one.rb](lesson_one.rb) for an example of a really simple Sinatra application. This app seems pretty basic, but it's pretty
-owerful to write a web app like this in a few simple lines. To run it, type `ruby lesson_one.rb` and you should see something like the f
-``wing output in your terminal
+Look at [lesson_one.rb](lesson_one.rb) for an example of a really simple Sinatra application. This app seems pretty basic, but it's really powerful to write a web app like this in a few simple lines. To run it, type `ruby lesson_one.rb` and you should see something like the follwing output in your terminal
 
-`inatra/1.4.5 has taken the stage on 4567 for development with backup from Thin
+```
+Sinatra/1.4.5 has taken the stage on 4567 for development with backup from Thin
 Thin web server (v1.6.3 codename Protein Powder)
 Maximum connections set to 1024
 Listening on localhost:4567, CTRL+C to stop
