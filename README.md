@@ -130,7 +130,7 @@ Embedded Ruby? This is a templating language where we can take ordinary HTML and
 
 **Your Turn:** So, let's see how well you understand what we did here. Suppose we want to add this to our pages from hello: `<p>There are 5 letters in your name</p>`. Implement this with the following steps:
 
-1. Define a new variable @count and assign it the value `@name.length` which is the length of the @name string
+1. Define a new variable `@count` and assign it the value `@name.length` which is the length of the @name string
 2. Include a HTML snippet in the `hello.erb` template to print out the letters in the name.
 
 **Nerd Note:** What is with that `@` in the variable name? What happens if we remove it? Suddenly our template just prints out "Hello, " Why? The simple explanation is that variables are usually only reachable or _scoped_ within their methods. In Ruby though, _instance variables_ on objects are defined by prefixing them with `@`. So, we are defining a variable that's also reachable from within the context of our rendered templates. If it didn't have that @, our template would look for a locally defined variable called `name` within the template and crash. But why does it print "Hello, " if our controller doesn't set @name? In that case, Ruby assumes you are defining a variable `@name` in your view, sets it to `nil` by default which is rendered in the view as an empty string. Remember that, since it's a common issue if you mistype a variable name in your template
