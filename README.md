@@ -30,12 +30,34 @@ get '/hi' do
 end
 ```
 
-**Nerd Note:** This is still Ruby code, but it's written in a special way to make it easier to just define a website in a few lines of streamlined code. What is happening here is we are calling a method named `get` defined by Sinatra with 2 arguments: the relative URL _route_ to respond to and a Ruby block containing the code to run when remote browsers connect to that route. What Sinatra does is create a registry of routes and actions and startup a web server to handle remote requests. This is many, many many more lines of code, but as users of Sinatra, we don't have to worry about all that busywork and just can use the minimal amount of code to do the work we need to do.
-
-Look at [lesson_one.rb](lesson_one.rb) for an example of a really simple Sinatra application. This app seems pretty basic, but it's pretty powerful to write a web app like this in a few simple lines. To run it, type `ruby lesson_one.rb` and you should see something like the following output in your terminal:
+**Nerd Note:** This is still Ruby code, but it's written in a special way to make it easier to just define a website in a few lines of streamlined code. What is happening here is we are calling a method named `get` defined by Sinatra with 2 arguments: the relative URL _route_ to respond to and a Ruby block containing the code to run when remote browsers connect to that route. What Sinatra does is create a registry of routes and actions and startup a web server to handle remote requests. This is many, many many more lines of code...
 
 ```
-== Sinatra/1.4.5 has taken the stage on 4567 for development with backup from Thin
+ def get(path, opts = {}, &block)
+   conditions = @conditions.dup
+   route('GET', path, opts, &block)
+ end
+
+def route(verb, path, options = {}, &block)
+  # Because of self.options.host
+  host_name(options.delete(:host)) if options.key?(:host)
+  enable :empty_path_info if path == "" and empty_path_info.nil?
+  signature = compile!(verb, path, block, options)
+  (@routes[verb] ||= []) << signature
+  invoke_hook(:route_added, verb, path, block)
+  signature
+end
+
+# and so on...
+````
+
+...but as users of Sinatra, we don't have to worry about all that busywork and just can use the minimal amount of code to do the work we need to do
+
+Look at [lesson_one.rb](lesson_one.rb) for an example of a really simple Sinatra application. This app seems pretty basic, but it's pretty
+owerful to write a web app like this in a few simple lines. To run it, type `ruby lesson_one.rb` and you should see something like the f
+``wing output in your terminal
+
+`inatra/1.4.5 has taken the stage on 4567 for development with backup from Thin
 Thin web server (v1.6.3 codename Protein Powder)
 Maximum connections set to 1024
 Listening on localhost:4567, CTRL+C to stop
