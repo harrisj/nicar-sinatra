@@ -16,13 +16,13 @@ If you want to get it working, we first need to install a few things on your mac
 We will also need to install a few gems. This is made simpler by using the bundler gem. To setup this project, run the following steps:
 
 * gem install bundler
-* bundle install (_this will install all other requirements_)
+* bundle install (_this will install all other gem requirements_)
 
 You might need to run these commands as `sudo` if they fail because of permission issues. Once you have this, we should be good to go.
 
 ## A Simple Web Application
 
-As I said before, [Sinatra](http://www.sinatrarb.com/) is a lightweight Domain-Specific Language Framework for creating simple web applications in a simple fashion. Wow, this got jargontastic fast. But it's actually pretty cool. A domain-specific language is a subset of a programming language that is used only for specific problems. Sinatra is a special language that is for building websites like so
+As I said before, [Sinatra](http://www.sinatrarb.com/) is a lightweight Domain-Specific Language Framework for creating simple web applications in a simple fashion. **Wow, this got jargontastic fast.** But it's actually pretty cool. A domain-specific language is a subset of a programming language that is used only for specific problems. Sinatra is a special language that is for building websites like so
 
 ```
 get '/hi' do
