@@ -139,7 +139,7 @@ Embedded Ruby? This is a templating language where we can take ordinary HTML and
 
 Okay, we've totally nailed the **VC** part of the **MVC** paradigm. Let's add a database and build a simple data viewer!
 
-I've compiled a small database in this project called `hunt.db` that includes every hunting accident in Wisconsin between 2007 and 2013 that involved squirrels. Let's see how big this is
+I've compiled a small database in this project called `hunt.db` that includes every [hunting accident in Wisconsin](http://dnr.wi.gov/topic/hunt/incidentReport.html) between 2007 and 2013 that involved squirrels. Let's see how big this is
 
 ```
 SQLite version 3.8.5 2014-08-15 22:37:57
