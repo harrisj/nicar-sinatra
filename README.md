@@ -10,7 +10,7 @@ The biggest and most popular web framework in Ruby is of course [Ruby on Rails](
 
 If you want to get it working, we first need to install a few things on your machine.
 
-* Ruby (2.2 or above is preferred)
+* Ruby (might be already on your machine; 2.0 or above is preferred)
 * The [Sqlite3](https://sqlite.org/) database library.
 
 We will also need to install a few gems. This is made simpler by using the bundler gem. To setup this project, run the following steps:
