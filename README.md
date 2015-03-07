@@ -20,6 +20,14 @@ We will also need to install a few gems. This is made simpler by using the bundl
 
 You might need to run these commands as `sudo` if they fail because of permission issues. Once you have this, we should be good to go.
 
+## Starting The Lesson
+
+To make sure you are up-to-date and ready to go, run the following steps:
+
+1. Open the terminal and `cd` to wherever this folder is
+2. Run `git pull origin master` to make sure you have the latest version
+3. Open this project in your favorite text editor (SublimeText, Textmate, etc. can open the whole folder). Otherwise, you can use things like vim or emacs or even simple text editors like Notepad or such to edit single files. Do not use Microsoft Word or other word processors if you can help it.
+
 ## A Simple Web Application
 
 As I said before, [Sinatra](http://www.sinatrarb.com/) is a lightweight Domain-Specific Language Framework for creating simple web applications in a simple fashion. **Wow, this got jargontastic fast.** But it's actually pretty cool. A domain-specific language is a subset of a programming language that is used only for specific problems. Sinatra is a special language that is for building websites like so
@@ -90,11 +98,18 @@ Let's try one more thing here for kicks. Routes do not necessarily have to be si
 
 ```
 get '/hello/:name' do
-  "Hello <strong>#{params[:name].capitalize}</strong>!"
+  "Hello #{params[:name]}!"
 end
 ```
 
-Restart Sinatra and go to [http://localhost:4567/ruby](http://localhost:4567/ruby) to see what happens here. How this code works is left as an exercise to the reader.
+Restart Sinatra and go to [http://localhost:4567/ruby](http://localhost:4567/ruby) to see what happens here. 
+
+**Your Turn:** We want to make this a little prettier and able to properly capitalize people's names:
+
+* Use Ruby's `String#capitalize` method to capitalize the name even if the request is lowercase
+* This is HTML we're sending to the browser, so try wrapping the name in `<strong>` or `<em>` or other tags. If you use `<blink>` I both disapprove and accept you are exactly like me.
+
+**Remember you will have to restart Sinatra to see these changes take effect**
 
 ## HTML Templating
 

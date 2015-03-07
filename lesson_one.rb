@@ -5,12 +5,7 @@ get '/hi' do
   'Hello world!'
 end
 
-# Uncomment me to redirect
-# get '/' do
-#   redirect to('/hi')
-# end
-
 # A simple dynamic route
 get '/hello/:name' do
-  "Hello <strong>#{params[:name].capitalize}</strong>!"
+  "Hello #{params[:name]}!"
 end
