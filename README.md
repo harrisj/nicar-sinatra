@@ -6,7 +6,7 @@ The biggest and most popular web framework in Ruby is of course [Ruby on Rails](
 
 [Sinatra](http://www.sinatrarb.com/) is a lightweight Domain-Specific Language Framework for creating simple web applications in a simple fashion. In this class, we'll build a simple web application with Sinatra to give you an idea of some basic concepts of web frameworks in Ruby.
 
-## Getting Started
+## Setting Up Your Machine
 
 If you want to get it working, we first need to install a few things on your machine.
 
