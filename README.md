@@ -8,6 +8,14 @@ The biggest and most popular web framework in Ruby is of course [Ruby on Rails](
 
 ## Setting Up Your Machine
 
+First, you need to pull this project down locally to a folder on your machine. If you are using a training computer, this has already been done for you. Otherwise, open the terminal on your machine and run
+
+```
+git clone https://github.com/harrisj/nicar-sinatra.git
+```
+
+If you don't have git on your machine, you will need to install that first. Alternatively, you can download the Github application for [the Mac](https://mac.github.com/) or [Windows](https://windows.github.com/). Then you can use the `Clone in Desktop` button on the Github page to pull down. In a pinch, you can always just download a ZIP archive of this project instead.
+
 If you want to get it working, we first need to install a few things on your machine.
 
 * Ruby (might be already on your machine; 2.0 or above is preferred)
@@ -24,7 +32,7 @@ You might need to run these commands as `sudo` if they fail because of permissio
 
 To make sure you are up-to-date and ready to go, run the following steps:
 
-1. Open the terminal and `cd` to wherever this folder is
+1. Open the terminal and `cd` to wherever you first cloned this repo to
 2. Run `git pull origin master` to make sure you have the latest version
 3. Open this project in your favorite text editor (SublimeText, Textmate, etc. can open the whole folder). Otherwise, you can use things like vim or emacs or even simple text editors like Notepad or such to edit single files. Do not use Microsoft Word or other word processors if you can help it.
 
