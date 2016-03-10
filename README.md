@@ -133,7 +133,7 @@ This sounds complicated, but we've already been using controllers in our previou
 <h1>Hello <%= @name %></h1>
 ```
 
-This kind of looks like HTML, but there is a special tag `<%= @name %>` in there that isn't HTML at all. What is that? Look at our [lesson_two.rb](lesson_two.rb) for this templateized version of our hello `route` from lesson one:
+This kind of looks like HTML, but there is a special tag `<%= @name %>` in there that isn't HTML at all. What is that? Look at our [lesson_two.rb](lesson_two.rb) for this templatized version of our hello `route` from lesson one:
 
 ```
 get '/hello/:name' do
