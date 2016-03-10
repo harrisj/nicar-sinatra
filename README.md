@@ -78,7 +78,7 @@ Maximum connections set to 1024
 Listening on localhost:4567, CTRL+C to stop
 ```
 
-Open your browser and navigate to [http://localhost:4567/hi](http://localhost:4567/hi) and see what your app does. Not bad for a few lines of code! Like I said before, Sinatra is doing all the hard work of defining the webserver, so our 3 lines of code gets expanded outward into a full web application. TK
+Open your browser and navigate to [http://localhost:4567/hi](http://localhost:4567/hi) and see what your app does. Not bad for a few lines of code! Like I said before, Sinatra is doing all the hard work of defining the webserver, so our 3 lines of code gets expanded outward into a full web application.
 
 Now, let's try this request [http://localhost:4567/](http://localhost:4567/). Uh oh! It's an error! Time to add another route for that.
 
@@ -110,7 +110,7 @@ get '/hello/:name' do
 end
 ```
 
-Restart Sinatra and go to [http://localhost:4567/ruby](http://localhost:4567/ruby) to see what happens here. 
+Restart Sinatra and go to [http://localhost:4567/hello/ruby](http://localhost:4567/hello/ruby) to see what happens here. 
 
 **Your Turn:** We want to make this a little prettier and able to properly capitalize people's names:
 
@@ -236,6 +236,8 @@ Look at [lesson_three.rb](lesson_three.rb). I've defined two routes for our appl
 
 * The `/` index page will display a list of all accidents on one page
 * The `/show/:id` gives a detailed view of a specific accident
+
+You can run this application by typing `ruby lesson_three.rb` and visiting [http://localhost:4567/](http://localhost:4567)
 
 Let's look also at [views/index.erb](views/index.erb) which will render the index page. I've taken the liberty of writing this HTML out for you. But I wanted you to notice a few interesting things:
 
